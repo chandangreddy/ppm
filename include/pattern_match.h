@@ -1,5 +1,6 @@
 #include <islutils/matchers.h>
 
+namespace ppm {
 
 enum class PatternType { Gemm, MatrixVector, DotProduct, None };
 
@@ -17,7 +18,6 @@ private:
   PatternType type_;
 };
 
-
 class GemmPattern : public Pattern {
 public:
   GemmPattern() : Pattern(PatternType::Gemm) {}
@@ -31,7 +31,7 @@ public:
 
 private:
   static constexpr int MatchingCost = 3;
-  static matchers::ScheduleNodeMatcher matcher_ ;
+  static matchers::ScheduleNodeMatcher matcher_;
 };
 
 class MatrixVectorPattern : public Pattern {
@@ -47,7 +47,7 @@ public:
 
 private:
   static constexpr int MatchingCost = 20;
-  static matchers::ScheduleNodeMatcher matcher_ ;
+  static matchers::ScheduleNodeMatcher matcher_;
 };
 
 class DotProductPattern : public Pattern {
@@ -63,7 +63,7 @@ public:
 
 private:
   static constexpr int MatchingCost = 1;
-  static matchers::ScheduleNodeMatcher matcher_ ;
+  static matchers::ScheduleNodeMatcher matcher_;
 };
 
 typedef std::unique_ptr<Pattern> UPattern;
@@ -71,3 +71,5 @@ std::vector<UPattern> AllPatterns();
 
 int MatchPatterns(isl::schedule_node node,
                   std::vector<PatternType> &matchedPatterns);
+
+} // namespace ppm

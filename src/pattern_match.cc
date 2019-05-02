@@ -1,9 +1,10 @@
+#include "pattern_match.h"
+#include <iostream>
 #include <limits>
 #include <string>
-#include <iostream>
-#include "pattern_match.h"
 
 using namespace matchers;
+namespace ppm {
 
 std::ostream &operator<<(std::ostream &os, PatternType p) {
   switch (p) {
@@ -18,7 +19,7 @@ std::ostream &operator<<(std::ostream &os, PatternType p) {
   };
 }
 
-  // clang-format off
+// clang-format off
   ScheduleNodeMatcher GemmPattern::matcher_ = 
     band(
       band(
@@ -45,7 +46,7 @@ std::ostream &operator<<(std::ostream &os, PatternType p) {
           filter(
             band(
               leaf())));
-  // clang-format on
+// clang-format on
 
 std::vector<UPattern> AllPatterns() {
 
@@ -76,7 +77,7 @@ int MatchPatterns(isl::schedule_node node,
     }
   }
 
-  // try matching all subtrees 
+  // try matching all subtrees
   for (int i = 0; i < node.n_children(); ++i) {
     std::vector<PatternType> subtreePatterns;
     int cur_cost = MatchPatterns(node.child(i), subtreePatterns);
@@ -91,3 +92,5 @@ int MatchPatterns(isl::schedule_node node,
 
   return max_cost;
 }
+
+} // namespace ppm

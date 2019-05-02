@@ -3,6 +3,7 @@
 #include <islutils/ctx.h>
 
 #include "pattern_match.h"
+using namespace ppm;
 
 isl::schedule_node getGemmTree() {
   std::string inputFile =
