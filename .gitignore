@@ -1,0 +1,12 @@
+.vscode/ipch/8a9fdf27b3a6cfc8/mmap_address.bin
+build/
+external/
+CMakeFiles/
+*.ipch
+*.a
+*.bin
+CMakeCache.txt
+Makefile
+cmake_install.cmake
+external/isl
+external/pet/tmp/pet-cfgcmd.txt
