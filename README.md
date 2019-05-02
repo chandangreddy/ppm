@@ -9,6 +9,8 @@ after submodule update.
 
 ```sh
 git submodule update --init --recursive
+// to fix the autoreconf error
+touch external/pet/aclocal.m4 external/pet/Makefile.am external/pet/configure external/pet/Makefile.in
 cmake .
 make pet
 make
