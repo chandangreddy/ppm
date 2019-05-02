@@ -52,8 +52,11 @@ public:
 
 private:
   static constexpr int MatchingCost = 3;
+  static ScheduleNodeMatcher matcher_ ;
+};
+
   // clang-format off
-  static inline ScheduleNodeMatcher matcher_ = 
+  ScheduleNodeMatcher GemmPattern::matcher_ = 
     band(
       band(
         sequence(
@@ -63,8 +66,6 @@ private:
             band(
               leaf())))));
   // clang-format on
-};
-
 class MatrixVectorPattern : public Pattern {
 public:
   MatrixVectorPattern() : Pattern(PatternType::MatrixVector) {}
@@ -78,8 +79,11 @@ public:
 
 private:
   static constexpr int MatchingCost = 20;
+  static ScheduleNodeMatcher matcher_ ;
+};
+
   // clang-format off
-  static inline ScheduleNodeMatcher matcher_ = 
+  ScheduleNodeMatcher MatrixVectorPattern::matcher_ = 
       band(
         sequence(
           filter(
@@ -88,8 +92,6 @@ private:
             band(
               leaf()))));
   // clang-format on
-};
-
 class DotProductPattern : public Pattern {
 public:
   DotProductPattern() : Pattern(PatternType::DotProduct) {}
@@ -103,8 +105,11 @@ public:
 
 private:
   static constexpr int MatchingCost = 1;
+  static ScheduleNodeMatcher matcher_ ;
+};
+
   // clang-format off
-  static inline ScheduleNodeMatcher matcher_ = 
+  ScheduleNodeMatcher DotProductPattern::matcher_ = 
         sequence(
           filter(
             leaf()),
@@ -112,8 +117,6 @@ private:
             band(
               leaf())));
   // clang-format on
-};
-
 typedef std::unique_ptr<Pattern> UPattern;
 std::vector<UPattern> AllPatterns() {
 
