@@ -59,10 +59,11 @@ add_library(islutils
             islutils/common.cc
 	    islutils/bm_kernels_matchers.cc
 	    islutils/bm_classes.cc
-	    islutils/bm_matchers.cc)
+      islutils/bm_matchers.cc
+      src/pattern_match.cc)
 target_include_directories(islutils PUBLIC ${CMAKE_SOURCE_DIR})
 target_include_directories(islutils PUBLIC ${isl_INCLUDE} ${pet_INCLUDE})
-target_include_directories(islutils PUBLIC ${isl_INCLUDE} ${pet_INCLUDE})
+target_include_directories(islutils PUBLIC ${isl_INCLUDE} ${pet_INCLUDE} "include/")
 target_link_libraries(islutils ${isl_LIB} ${pet_LIB})
 
 #target_include_directories(islutils PUBLIC ${isl_INCLUDE} ${pet_INCLUDE} ${boost_include})
