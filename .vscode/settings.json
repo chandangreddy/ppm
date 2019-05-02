@@ -1,0 +1,4 @@
+{
+  "cquery.cacheDirectory": "${workspaceFolder}/.vscode/cquery_cached_index/",
+  "clang-format.executable": "clang-format-4.0"
+}
