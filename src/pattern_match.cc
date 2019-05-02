@@ -1,3 +1,6 @@
+#include <limits>
+#include <string>
+#include <iostream>
 #include "pattern_match.h"
 
 using namespace matchers;

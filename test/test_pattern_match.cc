@@ -1,4 +1,7 @@
 #include "gtest/gtest.h"
+#include <islutils/pet_wrapper.h>
+#include <islutils/ctx.h>
+
 #include "pattern_match.h"
 
 isl::schedule_node getGemmTree() {

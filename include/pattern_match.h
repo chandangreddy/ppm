@@ -1,10 +1,4 @@
-#include <islutils/builders.h>
-#include <islutils/ctx.h>
 #include <islutils/matchers.h>
-#include <islutils/pet_wrapper.h>
-#include <limits>
-
-#include <pet.h>
 
 
 enum class PatternType { Gemm, MatrixVector, DotProduct, None };
