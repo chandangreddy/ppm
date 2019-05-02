@@ -6,6 +6,7 @@ set(TEST_NAMES
     builders
     transformer
     access
+    pattern_match
     parser)
 
 set(TEST_INPUTS
